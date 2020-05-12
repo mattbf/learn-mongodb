@@ -1,6 +1,10 @@
 
 # Concepts
 
+![Working with MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/workingwithmongo.png)
+
+![CRUD in MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/crud.png)
+
 When to use Relations:
 
 One to One embedded:  documents is good for a strong connection between the two
@@ -29,13 +33,15 @@ The $set operator replaces the value of a field with the specified value.
 
 Projections: return filtered data and only the fields you want
 
+```
 db.collection.find({}, {name: 1, _id: 0})
 -> returns
 { "name" : "Armin Glutch" }
 { "name" : "Klaus Arber" }
 { "name" : "Albert Twostone" }
+```
 
-Embedded Documents:
+### Embedded Documents
 
 (Can have up to 100 levels of nested and overall document size has to be lower than 16mB)
 
@@ -65,14 +71,17 @@ db.passengers.findOne({name: "Albert Twostone"}).hobbies
 
 OR drill into embedded documents like so:
 
-```db.flightData.find({status.description: “on-time”})```
+```
+db.flightData.find({status.description: “on-time”})
+```
 
 
 
 db.stats() returns some helpful information
 
 
-```{
+```
+{
 	"db" : "companyData",
 	"collections" : 2,
 	"views" : 0,
@@ -87,14 +96,8 @@ db.stats() returns some helpful information
 	"fsUsedSize" : 219360460800,
 	"fsTotalSize" : 250790436864,
 	"ok" : 1
-}```
-
-
-
-
-
-
-
+}
+```
 
 Use lookup to use one call instead
 
@@ -141,4 +144,5 @@ db.createCollection('posts', {
       }
     }
   }
-});```
+});
+```
