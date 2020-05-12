@@ -1,7 +1,7 @@
 # learn-mongodb
 Learning MongoDB and documenting the process.
 
-I am taking Acadamind's (MongoDB course)[https://www.udemy.com/share/101WjABUMbdl1WRnw=/]
+I am taking Acadamind's [MongoDB course](https://www.udemy.com/share/101WjABUMbdl1WRnw=/)
 
 ## Documentation
 
