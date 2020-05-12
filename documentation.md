@@ -5,23 +5,34 @@
 
 ![CRUD in MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/crud.png)
 
-When to use Relations:
+## Schema and Datatypes
 
-One to One embedded:  documents is good for a strong connection between the two
+![Schema in MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/sqlvsnosql.png)
+![Datatypes in MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/datatypes.png)
+![modelling chart](https://github.com/mattbf/learn-mongodb/raw/master/images/dataandmodellingchart.png)
+
+
+
+
+### When to use Relations:
+
+**One to One embedded:**  documents is good for a strong connection between the two
 > db.patients.insertOne({name: "max", age: 29, diseaseSummary: {diseases: ["cold", "broken leg"]}})
 
-One to One reference:  You could separate it if you had an application need to split it up (Eg persons and cars)
+**One to One reference:**  You could separate it if you had an application need to split it up (Eg persons and cars)
 
-One to Many embedded:  questions and answers. List of answers embedded in questions
+**One to Many embedded:**  questions and answers. List of answers embedded in questions
 
-One to Many references:  cities with citizens. 1. Don’t want to go over 16mb limit for documents (Includes nested documents). So, each citizen has a reference to the city they live in 2. If you’re interested in the city meta data you don’t fetch all citizens
+**One to Many references:**  cities with citizens. 1. Don’t want to go over 16mb limit for documents (Includes nested documents). So, each citizen has a reference to the city they live in 2. If you’re interested in the city meta data you don’t fetch all citizens
 
-Many to Many embedded:  Ex. Many customers Many Products
-SQL approach is create a orders table which takes a productID and csutomerID
+**Many to Many embedded:**  Ex. Many customers Many Products
+SQL approach is create a orders table which takes a productID and customerID
 Add an array with references in one or both tables (eg. order list in customers)
-Or just directly embed information into an embedded list (Disadvantage is data duplication, also if you have to change the data you have to change it in the products database and in the order embedded documents, or maybe you don’t price doesn;t change in past orders)
+Or just directly embed information into an embedded list (Disadvantage is data duplication, also if you have to change the data you have to change it in the products database and in the order embedded documents, or maybe you don’t price doesn't change in past orders)
 
-Many to Many references:  Books and Authors
+**Many to Many references:**  Books and Authors
+
+![Working with MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/relations-options.png)
 
 # Using the Shell
 
@@ -99,8 +110,11 @@ db.stats() returns some helpful information
 }
 ```
 
+
+![Working with MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/joiningwithlookup.png)
 Use lookup to use one call instead
 
+![Working with MongoDB](https://github.com/mattbf/learn-mongodb/raw/master/images/example-blog.png)
 
 Basic Collection Schema Validation
 
